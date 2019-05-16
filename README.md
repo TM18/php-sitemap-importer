@@ -1,5 +1,6 @@
 ## PHP sitemap importer 
 [![Build Status](https://travis-ci.org/TM18/php-sitemap-importer.svg?branch=master)](https://travis-ci.org/TM18/php-sitemap-importer)
+[![Coverage Status](https://coveralls.io/repos/github/TM18/php-sitemap-importer/badge.svg?branch=master)](https://coveralls.io/github/TM18/php-sitemap-importer?branch=master)
 
 ### Author
 TM18  
