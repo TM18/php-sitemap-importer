@@ -27,3 +27,14 @@ foreach ($websites as $website) {
     }
 }
 ```
+
+### Tests
+To run unit tests run this command from the main directory:
+```bash
+./vendor/bin/phpunit
+```
+It will generate a report in clover format in `build/logs/clover.xml`.  
+In order to see the coverage in text form in command line pass `--coverage-text` flag:
+```bash
+./vendor/bin/phpunit --coverage-text
+```
