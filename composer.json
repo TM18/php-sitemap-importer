@@ -1,0 +1,19 @@
+{
+  "name": "tm/php-sitemap-importer",
+  "description": "Library that imports sitemap file and creates a list of websites and pages",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "authors": [
+    {
+      "name": "Tomasz Matuszewski",
+      "email": "tomasz.matuszewski-93@o2.pl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "TM\\": "src/"
+    }
+  }
+}
