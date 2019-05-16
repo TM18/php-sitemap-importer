@@ -4,6 +4,10 @@ php:
   - '7.2'
   - '7.3'
 
+stages:
+  - coverage analysis
+  - security checker
+
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install
@@ -27,3 +31,9 @@ jobs:
         - vendor/bin/phpunit -c phpunit.xml.dist
       after_success:
         - travis_retry php vendor/bin/php-coveralls -v
+    - stage: security checker
+      php: '7.3'
+      install:
+        - composer require --dev sensiolabs/security-checker
+      script:
+        - vendor/bin/security-checker security:check
