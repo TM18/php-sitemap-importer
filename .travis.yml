@@ -11,3 +11,19 @@ before_script:
 script:
   - vendor/bin/psalm
   - vendor/bin/phpunit
+
+jobs:
+  include:
+    - stage: coverage analysis
+      php: '7.3'
+      env: XDEBUG="true"
+      install:
+        - curl -s http://getcomposer.org/installer | php
+        - php composer.phar install
+        - php composer.phar update
+        - php composer.phar require --dev php-coveralls/php-coveralls
+        - mkdir -p build/logs
+      script:
+        - vendor/bin/phpunit -c phpunit.xml.dist
+      after_success:
+        - travis_retry php vendor/bin/php-coveralls -v
