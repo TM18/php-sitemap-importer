@@ -5,6 +5,8 @@ php:
   - '7.3'
 
 stages:
+  - psalm analysis
+  - test
   - coverage analysis
   - security checker
 
@@ -13,19 +15,19 @@ before_script:
   - php composer.phar install
   
 script:
-  - vendor/bin/psalm
   - vendor/bin/phpunit
 
 jobs:
   include:
+    - stage: psalm analysis
+      php: '7.3'
+      script:
+        - vendor/bin/psalm
     - stage: coverage analysis
       php: '7.3'
       env: XDEBUG="true"
       install:
-        - curl -s http://getcomposer.org/installer | php
-        - php composer.phar install
-        - php composer.phar update
-        - php composer.phar require --dev php-coveralls/php-coveralls
+        - composer require --dev php-coveralls/php-coveralls
         - mkdir -p build/logs
       script:
         - vendor/bin/phpunit -c phpunit.xml.dist
