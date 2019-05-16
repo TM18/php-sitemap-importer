@@ -15,5 +15,8 @@
     "psr-4": {
       "TM\\": "src/"
     }
+  },
+  "require-dev": {
+    "vimeo/psalm": "^3.2"
   }
 }

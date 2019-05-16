@@ -69,6 +69,10 @@ class SitemapImporter
      */
     private function extractWebsites(): array
     {
+        if (is_null($this->xml)) {
+            return [];
+        }
+
         $websites = [];
 
         foreach ($this->xml->url as $url) {
