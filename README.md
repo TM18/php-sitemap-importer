@@ -4,3 +4,25 @@
 ### Author
 TM18  
 tomasz.matuszewski-93@o2.pl
+
+### How to use
+1. Use TM\SitemapImporter:
+```php
+use TM\SitemapImporter
+```
+2. Create new SitemapImporter instance and load XML file:
+```php
+$importer = new SitemapImporter();
+$importer->loadFile($pathToXmlFile);
+```
+3. Fetch websites:
+```php
+$websites = $importer->getWebsites();
+
+foreach ($websites as $website) {
+    echo $website->getName() . ' - ' . $website->getHost() . PHP_EOL;
+    foreach ($website->getPages() as $page) {
+        echo '--' . $page . PHP_EOL;
+    }
+}
+```
