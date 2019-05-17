@@ -90,7 +90,7 @@ class SitemapImporter
                 $parsed['path'] = substr($parsed['path'], 1, strlen($parsed['path']) - 1);
             }
 
-            $websites[$parsed['host']][] = $parsed['path'] . isset($parsed['query']) ?: '';
+            $websites[$parsed['host']][] = $parsed['path'] . (isset($parsed['query']) ? $parsed['query'] : '');
         }
 
         return $websites;
